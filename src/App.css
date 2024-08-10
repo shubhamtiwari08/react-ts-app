@@ -12,6 +12,12 @@
   overflow-y: scroll;
 }
 
+.main-detail-container{
+  height: 95vh;
+  overflow-y: scroll;
+  background-color: rgb(226, 225, 225);
+}
+
 main{
   display: grid;
   grid-template-columns: 2fr 5fr;

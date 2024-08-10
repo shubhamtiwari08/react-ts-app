@@ -15,7 +15,10 @@ function App() {
       <div className="customer-list"> 
      {totalData.map(({id,customerName,description,isSelected}) => <Customertab id={id} customerName={customerName} description={description} isSelected={isSelected}/>)}
      </div>
+     <div className='main-detail-container'>
+
      <Detailstab/>
+     </div>
       
     </main>
   )
