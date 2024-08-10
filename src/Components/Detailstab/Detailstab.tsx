@@ -1,24 +1,11 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import './deatil.css'
 import { useSelector } from 'react-redux';
 import { RootState } from '../../Redux/store';
 
 const Detailstab: React.FC = () => {
-  const imgID  = [
-    { id: 1 },
-    { id: 2 },
-    { id: 3 },
-    { id: 4 },
-    { id: 5 },
-    { id: 6 },
-    { id: 7 },
-    { id: 8 },
-    { id: 9 }
-  ]
-
-  
-  
-  
+  const [randomNumbers, setRandomNumbers] = useState<Number[]>([1,2,3,4,5,6,7,8,9]);
+ 
   
   const selectedData = useSelector((state:RootState) => state.selectedIdData)
   const {customerName,id,description} = selectedData
@@ -26,9 +13,16 @@ const Detailstab: React.FC = () => {
   return Math.floor(Math.random() * (max - min + 1)) + min;
   }
 
-  useEffect(()=>{
+  useEffect(() => {
+    const generateRandomNumbers = () => {
+      setRandomNumbers(randomNumbers.map(() => getRandomNumber()));
+    };
 
-  })
+    generateRandomNumbers(); 
+    const intervalId = setInterval(generateRandomNumbers, 10000); 
+
+    return () => clearInterval(intervalId);
+  }, [id]);
   
   return (
     <div className='detail-container'>
@@ -37,16 +31,13 @@ const Detailstab: React.FC = () => {
         <h2>{customerName}</h2>
         <p>{description}</p>
         <div className="images-container">
-        {imgID.map((item, index) => {
-              const randomNumber = getRandomNumber(); 
-              return (
-                <img
-                  key={item.id} // Use a unique key from your imgID array
-                  src={`https://picsum.photos/id/${randomNumber}/200`}
-                  alt={`random ${randomNumber}`}
-                />
-              );
-            })}
+        {randomNumbers.map((randomNumber, index) => (
+    <img
+      key={index} // Use the index or another unique key from your data
+      src={`https://picsum.photos/id/${randomNumber}/200`}
+      alt={`random ${randomNumber}`}
+    />
+  ))}
         </div>
       </div>
     ) : (
