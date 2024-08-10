@@ -13,7 +13,7 @@ function App() {
   return (
     <main>
       <div className="customer-list"> 
-     {totalData.map(({id,customerName,description}) => <Customertab id={id} customerName={customerName} description={description}/>)}
+     {totalData.map(({id,customerName,description,isSelected}) => <Customertab id={id} customerName={customerName} description={description} isSelected={isSelected}/>)}
      </div>
      <Detailstab/>
       

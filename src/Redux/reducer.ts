@@ -31,7 +31,7 @@ export const tabReducer = (state = initiaState,action:MyActionTypes):State =>{
             if(item.id == action.id){
                 return item = {...item,isSelected:true}
             }else{
-                return item
+                return {...item,isSelected:false}
             }
            })
           return { ...state, isSelectedId:state.isSelectedId,selectedIdData:filteredData,totalData:modifiedData};

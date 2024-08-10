@@ -1,6 +1,12 @@
 .tab-container{
     padding: 1rem;
     border-bottom: 1px solid rgb(189, 188, 188);
+    cursor: pointer;
+}
+
+.tab-container.active{
+    background-color: rgb(226, 225, 225);
+    border-right: 2px solid black;
 }
 
 .tab-container p{
