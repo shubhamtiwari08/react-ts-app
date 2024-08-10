@@ -1,0 +1,13 @@
+.tab-container{
+    padding: 1rem;
+    border-bottom: 1px solid rgb(189, 188, 188);
+}
+
+.tab-container p{
+    color: rgb(80, 80, 80);
+    word-break: break-all;
+}
+
+.tab-container h2{
+  font-weight: 400;
+}
