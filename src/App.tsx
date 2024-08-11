@@ -1,7 +1,7 @@
 
 import { useSelector } from 'react-redux'
 import './App.css'
-import { RootState, AppDispatch } from './Redux/store'
+import { RootState } from './Redux/store'
 import Customertab from './Components/Customertab/Customertab'
 import Detailstab from './Components/Detailstab/Detailstab'
 
@@ -25,7 +25,5 @@ function App() {
 }
 
 export default App
-function state(state: unknown): unknown {
-  throw new Error('Function not implemented.')
-}
+
 
